@@ -1,4 +1,4 @@
-![thumbnail (5)](https://github.com/user-attachments/assets/f3b62656-eda2-4489-ba04-babef81c955b)
+<img src="https://github.com/user-attachments/assets/f3b62656-eda2-4489-ba04-babef81c955b" width="600" height="300" alt="Project Thumbnail"/>
 
 # 👥 진행 방식
 
