@@ -1,4 +1,6 @@
-<img src="https://github.com/user-attachments/assets/f3b62656-eda2-4489-ba04-babef81c955b" width="600" height="300" alt="Project Thumbnail"/>
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/f3b62656-eda2-4489-ba04-babef81c955b" width="800" height="400" alt="Project Thumbnail"/>
+</p>
 
 # 👥 진행 방식
 
