@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/user-attachments/assets/f3b62656-eda2-4489-ba04-babef81c955b" width="800" style="height: auto;" alt="Project Thumbnail"/>
+    <img src="https://github.com/user-attachments/assets/f3b62656-eda2-4489-ba04-babef81c955b" width="700" style="height: auto;" alt="Project Thumbnail"/>
 </p>
 
 # 👥 진행 방식
