@@ -4,37 +4,38 @@
 
 # 👥 스터디원
 
-<table>
-  <tr>
-    <td>
-      <img src="https://avatars.githubusercontent.com/u/120161508?v=4" width="120px" height="120px"/>
-    </td>
-    <td>
-      <img src="https://avatars.githubusercontent.com/u/55120757?v=4" width="120px" height="120px"/>
-    </td>
-    <td>
-      <img src="https://avatars.githubusercontent.com/u/121949750?v=4" width="120px" height="120px"/>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <a href="https://github.com/jonghoon-L">
-        이종훈
-      </a>
-    </td>
-    <td>
-      <a href="https://github.com/heebeom-song">
-        송희범
-      </a>
-    </td>
-    <td>
-      <a href="https://github.com/wlqgkrry">
-        오지현
-      </a>
-    </td>
-  </table>
-  
+<div align="center">
+    <table>
+    <tr>
+        <td>
+        <img src="https://avatars.githubusercontent.com/u/120161508?v=4" width="120px" height="120px"/>
+        </td>
+        <td>
+        <img src="https://avatars.githubusercontent.com/u/55120757?v=4" width="120px" height="120px"/>
+        </td>
+        <td>
+        <img src="https://avatars.githubusercontent.com/u/121949750?v=4" width="120px" height="120px"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        <a href="https://github.com/jonghoon-L">
+            이종훈
+        </a>
+        </td>
+        <td>
+        <a href="https://github.com/heebeom-song">
+            송희범
+        </a>
+        </td>
+        <td>
+        <a href="https://github.com/wlqgkrry">
+            오지현
+        </a>
+        </td>
+    </table>
+</div>
+    
 ---
 
 # 🏃‍♂️ 진행 방식
