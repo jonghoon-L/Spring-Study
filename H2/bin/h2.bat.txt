@@ -1,0 +1,4 @@
+@echo off
+set DIR=%~dp0
+set DIR=%DIR:~0,-1%
+java -cp "%DIR%\h2-2.3.232.jar;%H2DRIVERS%;%CLASSPATH%" org.h2.tools.Console %*
