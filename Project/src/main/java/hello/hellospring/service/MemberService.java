@@ -7,11 +7,16 @@ import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 @Transactional
+@Service
 public class MemberService {
 
     private final MemberRepository memberRepository;
 
+    @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
@@ -24,7 +29,7 @@ public class MemberService {
         long start = System.currentTimeMillis(); // 시간 측정
 
         try {
-            // 같은 이름이 있는 중복 회원 x
+            // 같은 이메일이 있는 중복 회원 x
             validateDuplicateMember(member); // 중복 회원 검증
             memberRepository.save(member);
             return member.getId();
@@ -36,7 +41,7 @@ public class MemberService {
     }
 
     private void validateDuplicateMember(Member member) {
-        memberRepository.findById(member.getName())
+        memberRepository.findByEmail(member.getEmail())
             .ifPresent(m -> {
                 throw new IllegalStateException("이미 존재하는 회원입니다.");
         });
@@ -52,4 +57,13 @@ public class MemberService {
     public Optional<Member> findOne(Long memberId) {
         return memberRepository.findById(memberId);
     }
+
+     /**
+      * 로그인
+      */ 
+    public Member findByEmailAndPassword(String email, String password) {
+        return memberRepository.findByEmailAndPassword(email, password)
+            .orElseThrow(() -> new IllegalStateException("잘못된 이메일 또는 비밀번호입니다."));  // 예외를 던짐
+    }
+
 }
