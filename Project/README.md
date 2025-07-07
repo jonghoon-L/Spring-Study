@@ -11,6 +11,19 @@
 
 ---
 
+# ▶️ Spring Boot 실행 방법
+
+### 1️⃣ 기존 빌드 파일 삭제
+- Remove-Item -Recurse -Force .\build
+
+### 2️⃣ 빌드
+- .\gradlew build
+
+### 3️⃣ 실행
+- java -jar build\libs\hello-spring-0.0.1-SNAPSHOT.jar
+
+---
+
 # ⚠️ 주의할 점
 
 ### 1️⃣ 빌드 폴더 중복 오류
