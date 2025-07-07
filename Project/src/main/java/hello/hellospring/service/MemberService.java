@@ -63,7 +63,8 @@ public class MemberService {
       */ 
     public Member findByEmailAndPassword(String email, String password) {
         return memberRepository.findByEmailAndPassword(email, password)
-            .orElseThrow(() -> new IllegalStateException("잘못된 이메일 또는 비밀번호입니다."));  // 예외를 던짐
+            .orElseThrow(() -> new IllegalStateException("잘못된 이메일 또는 비밀번호입니다."));
     }
+
 
 }

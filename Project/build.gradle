@@ -2,7 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.4.5'
 	id 'io.spring.dependency-management' version '1.1.7'
-    id 'pmd'
+    // id 'pmd'
 }
 
 group = 'com.example'
@@ -19,6 +19,7 @@ repositories {
 }
 
 dependencies {
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -32,13 +33,13 @@ test {
 	useJUnitPlatform()
 }
 
-pmd {
-    toolVersion = '6.36.0'  // PMD 버전 설정
-    ruleSets = []  // 기본 제공 규칙을 사용하지 않고, 커스터마이즈 가능
-    ruleSetConfig = resources.text.fromFile('config/pmd/pmd-ruleset.xml')  // 커스터마이즈한 규칙 파일
-}
+//pmd {
+    // toolVersion = '6.36.0'  // PMD 버전 설정
+    // ruleSets = []  // 기본 제공 규칙을 사용하지 않고, 커스터마이즈 가능
+    // ruleSetConfig = resources.text.fromFile('config/pmd/pmd-ruleset.xml')  // 커스터마이즈한 규칙 파일
+//}
 
-pmdMain {
-    ruleSetConfig = resources.text.fromFile('config/pmd/pmd-ruleset.xml')  // 커스터마이즈한 규칙 파일
-    ignoreFailures = false
-}
+//pmdMain {
+   // ruleSetConfig = resources.text.fromFile('config/pmd/pmd-ruleset.xml')  // 커스터마이즈한 규칙 파일
+   // ignoreFailures = false
+//}

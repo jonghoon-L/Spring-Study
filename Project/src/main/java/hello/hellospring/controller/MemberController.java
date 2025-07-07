@@ -56,16 +56,14 @@ public class MemberController {
     // 로그인 처리하는 메서드
     @PostMapping("/members/login")
     public String login(String email, String password, Model model) {
-        Member member = memberService.findByEmailAndPassword(email, password);
-
-        if (member != null) {
-            // 로그인 성공 시, 로그인한 사용자 정보를 보여주거나 다른 작업을 처리
+        try {
+            Member member = memberService.findByEmailAndPassword(email, password);
             model.addAttribute("member", member);
-            return "members/memberHome";  // 로그인 후 사용자 홈 화면
-        } else {
-            // 로그인 실패 시, 다시 로그인 폼을 보여줌
-            model.addAttribute("error", "잘못된 이메일 또는 비밀번호입니다.");
+            return "redirect:/";  // 로그인 후 사용자 홈 화면
+        } catch (IllegalStateException e) {
+            model.addAttribute("error", e.getMessage());  // 오류 메시지 전달
             return "members/loginForm";  // 로그인 실패 시 로그인 폼으로 돌아감
         }
     }
+
 }
