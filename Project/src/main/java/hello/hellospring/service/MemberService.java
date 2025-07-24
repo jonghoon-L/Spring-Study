@@ -2,7 +2,11 @@ package hello.hellospring.service;
 
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemberRepository;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import jakarta.transaction.Transactional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,6 +19,7 @@ import org.springframework.stereotype.Service;
 public class MemberService {
 
     private final MemberRepository memberRepository;
+    private final Logger logger = LoggerFactory.getLogger(MemberService.class);
 
     @Autowired
     public MemberService(MemberRepository memberRepository) {
@@ -66,5 +71,44 @@ public class MemberService {
             .orElseThrow(() -> new IllegalStateException("잘못된 이메일 또는 비밀번호입니다."));
     }
 
+    /**
+     * 로그아웃
+     */
+    public void logout(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            logger.info("세션 {} 만료 처리 중", session.getId());  // 세션 ID 로그 출력
+            session.invalidate();  // 세션 무효화
+            logger.info("세션 {} 만료 완료", session.getId());  // 세션 만료 로그 출력
+        } else {
+            logger.warn("유효한 세션이 없습니다.");
+        }
+    }
+
+    /**
+     * 회원탈퇴
+     */
+    public void deleteByEmailAndPassword(String email, String password) {
+        Member member = memberRepository.findByEmailAndPassword(email, password)
+                .orElseThrow(() -> new IllegalArgumentException("이메일 또는 비밀번호가 올바르지 않습니다."));
+
+        memberRepository.delete(member);
+    }
+
+    /**
+     * 회원정보수정
+     */
+    public void updateMemberByEmail(String email, Member updateData) {
+        Member member = memberRepository.findByEmail(email)
+                .orElseThrow(() -> new IllegalArgumentException("회원을 찾을 수 없습니다."));
+
+        if (updateData.getName() != null && !updateData.getName().isBlank()) {
+            member.setName(updateData.getName());
+        }
+
+        if (updateData.getPassword() != null && !updateData.getPassword().isBlank()) {
+            member.setPassword(updateData.getPassword());
+        }
+    }
 
 }
